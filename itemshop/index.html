@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Item Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">Phoenix Down — <span class="muted">The Item Shop (affiliate)</span></div>
+  </header>
+
+  <main class="hero">
+    <h1>The Item Shop</h1>
+    <p class="lead">Official affiliate storefront for Phoenix Down. Independent site — opens in a new tab from phoenixdown.life.</p>
+
+    <div class="cta-row">
+      <a class="cta primary" href="#">Start Free Journey</a>
+      <a class="cta secondary" href="#">Premium Experience</a>
+    </div>
+
+    <!-- The Item Shop button (matches requested style, gold text) -->
+    <div class="cta-row">
+      <a class="cta itemshop" href="https://itemshop.life" target="_blank" rel="noopener noreferrer">The Item Shop</a>
+    </div>
+
+    <section class="hubspot">
+      <h2>Join our mailing list</h2>
+      <p>If you want to capture leads from the Item Shop site, enable HubSpot embed here. The snippet below is a placeholder — replace PORTAL_ID and FORM_ID with your HubSpot values.</p>
+
+      <!-- HubSpot embed placeholder -->
+      <div id="hubspot-form"></div>
+
+      <script>
+        // Example: HubSpot embed (replace PORTAL_ID & FORM_ID)
+        (function loadHubspot(){
+          var script = document.createElement('script');
+          script.src = 'https://js.hsforms.net/forms/v2.js';
+          script.onload = function() {
+            if (window.hbspt) {
+              try {
+                hbspt.forms.create({
+                  portalId: (window.ITEMSHOP_HUBSPOT_PORTAL || 'PORTAL_ID'),
+                  formId: (window.ITEMSHOP_HUBSPOT_FORM || 'FORM_ID'),
+                  target: '#hubspot-form'
+                });
+              } catch (e) {
+                console.warn('HubSpot form failed to render', e);
+              }
+            }
+          };
+          document.head.appendChild(script);
+        })();
+
+        // Example click-tracking to a backend endpoint before opening the external site
+        document.addEventListener('DOMContentLoaded', function () {
+          var itemshopBtn = document.querySelector('.cta.itemshop');
+          if (!itemshopBtn) return;
+          itemshopBtn.addEventListener('click', function (ev) {
+            // Non-blocking fetch to /api/track-click - optional server-side HubSpot call
+            try {
+              navigator.sendBeacon && navigator.sendBeacon('/api/track-click', JSON.stringify({ source: 'item-shop-link', path: window.location.pathname }));
+            } catch (e) {
+              // ignore
+            }
+            // default anchor behavior will open in a new tab
+          });
+        });
+      </script>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <small>© Phoenix Down / Item Shop — separate affiliate site</small>
+  </footer>
+</body>
+</html>

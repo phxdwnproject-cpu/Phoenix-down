@@ -1,0 +1,23 @@
+:root{
+  --navy: #002955; /* assumed from #oo2955 typo */
+  --yellow: #f7f450;
+  --orange: #fd5c25;
+  --gold: #d4af37;
+}
+
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:#111}
+.site-header{background:linear-gradient(90deg,var(--navy), #001f44); color:white; padding:18px 24px}
+.brand{font-weight:700}
+.hero{max-width:900px; margin:48px auto; padding:24px; text-align:center}
+.hero h1{font-size:40px; margin:0 0 8px}
+.lead{color:#334; margin-bottom:24px}
+.cta-row{margin:14px 0}
+.cta{display:inline-block; padding:12px 22px; border-radius:10px; font-weight:700; font-size:16px; text-decoration:none}
+.cta.primary{background:linear-gradient(180deg,var(--yellow), #e7e03b); color:#001f44; box-shadow:0 10px 20px rgba(247,244,80,0.12); border:2px solid rgba(0,41,85,0.06)}
+.cta.secondary{background:linear-gradient(180deg,var(--orange), #e44b16); color:white; box-shadow:0 8px 18px rgba(253,92,37,0.12); border:2px solid rgba(212,175,55,0.06)}
+/* The Item Shop button: same style family but navy with gold text */
+.cta.itemshop{background:linear-gradient(180deg,var(--navy), #001f44); color:var(--gold); border:2px solid rgba(212,175,55,0.12); box-shadow:0 8px 24px rgba(0,41,85,0.18)}
+.cta:hover{transform:translateY(-2px); transition:transform .12s ease}
+.hubspot{margin-top:30px; text-align:left}
+.site-footer{margin-top:48px; padding:18px 24px; text-align:center; color:#666}
